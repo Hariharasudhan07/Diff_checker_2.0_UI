@@ -1,4 +1,5 @@
 import React from 'react';
+import { FileText, Download, Circle } from 'lucide-react';
 import './PDFViewer.css';
 
 const PDFViewer = ({ beforeUrl, afterUrl, onDownload }) => {
@@ -9,27 +10,35 @@ const PDFViewer = ({ beforeUrl, afterUrl, onDownload }) => {
 
     return (
         <div className="pdf-viewer-container">
-            <h2 className="viewer-title">📄 Highlighted PDFs</h2>
+            <div className="viewer-title">
+                <FileText className="w-6 h-6" />
+                <h2>Highlighted PDFs</h2>
+            </div>
 
             <div className="highlight-info">
-                <div className="info-badge red-badge">🔴 Red = Removed/Changed (BEFORE)</div>
-                <div className="info-badge green-badge">🟢 Green = Added/New (AFTER)</div>
+                <div className="info-badge red-badge">
+                    <Circle className="w-4 h-4" fill="currentColor" />
+                    <span>Red = Removed/Changed (BEFORE)</span>
+                </div>
+                <div className="info-badge green-badge">
+                    <Circle className="w-4 h-4" fill="currentColor" />
+                    <span>Green = Added/New (AFTER)</span>
+                </div>
             </div>
 
             <div className="pdf-viewers">
                 <div className="pdf-viewer-section">
                     <div className="viewer-header">
-                        <h3>📕 Document A (BEFORE)</h3>
+                        <div className="header-title">
+                            <FileText className="w-5 h-5 text-danger-500" />
+                            <h3>Document A (BEFORE)</h3>
+                        </div>
                         {beforeUrl && (
                             <button
                                 className="download-btn"
                                 onClick={() => onDownload(fullBeforeUrl, 'before')}
                             >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg>
+                                <Download className="w-5 h-5" />
                                 Download
                             </button>
                         )}
@@ -54,17 +63,16 @@ const PDFViewer = ({ beforeUrl, afterUrl, onDownload }) => {
 
                 <div className="pdf-viewer-section">
                     <div className="viewer-header">
-                        <h3>📗 Document B (AFTER)</h3>
+                        <div className="header-title">
+                            <FileText className="w-5 h-5 text-success-500" />
+                            <h3>Document B (AFTER)</h3>
+                        </div>
                         {afterUrl && (
                             <button
                                 className="download-btn"
                                 onClick={() => onDownload(fullAfterUrl, 'after')}
                             >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg>
+                                <Download className="w-5 h-5" />
                                 Download
                             </button>
                         )}
