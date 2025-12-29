@@ -6,21 +6,20 @@
 }
 
 .uploader-label {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #f3f4f6;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
 }
 
 .upload-area {
     position: relative;
     padding: 2.5rem 2rem;
-    border: 2px dashed rgba(139, 92, 246, 0.4);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    background: var(--bg-secondary);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 200ms ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,42 +29,35 @@
 }
 
 .upload-area:hover {
-    border-color: rgba(139, 92, 246, 0.7);
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
+    background: var(--bg-tertiary);
+    border-color: var(--border-medium);
 }
 
 .upload-area.dragging {
-    border-color: #8b5cf6;
-    background: rgba(139, 92, 246, 0.15);
-    transform: scale(1.02);
-    box-shadow: 0 12px 32px rgba(139, 92, 246, 0.3);
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
 }
 
 .upload-area.has-file {
-    border-color: rgba(16, 185, 129, 0.6);
-    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--success);
+    background: rgba(16, 185, 129, 0.05);
 }
 
 .upload-area.has-file:hover {
-    border-color: rgba(16, 185, 129, 0.8);
-    background: rgba(16, 185, 129, 0.15);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+    background: rgba(16, 185, 129, 0.08);
 }
 
 .upload-icon {
-    color: #8b5cf6;
-    transition: all 0.3s ease;
+    color: var(--text-muted);
+    transition: opacity 200ms ease;
 }
 
 .upload-area:hover .upload-icon {
-    transform: scale(1.1);
-    color: #a78bfa;
+    opacity: 0.8;
 }
 
 .upload-area.has-file .upload-icon {
-    color: #10b981;
+    color: var(--success);
 }
 
 .upload-text {
@@ -77,46 +69,43 @@
 }
 
 .upload-prompt {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
-    color: #e5e7eb;
+    color: var(--text-primary);
 }
 
 .upload-or {
-    font-size: 0.9rem;
-    color: #9ca3af;
+    font-size: 0.875rem;
+    color: var(--text-muted);
 }
 
 .browse-button {
-    padding: 0.625rem 1.5rem;
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    padding: 0.625rem 1.25rem;
+    background: var(--accent-primary);
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 0.95rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    transition: background 200ms ease;
 }
 
 .browse-button:hover {
-    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+    background: var(--accent-hover);
 }
 
 .file-name {
     font-size: 1rem;
     font-weight: 600;
-    color: #10b981;
+    color: var(--success);
     word-break: break-word;
     max-width: 100%;
 }
 
 .file-size {
     font-size: 0.875rem;
-    color: #9ca3af;
+    color: var(--text-muted);
 }
 
 @media (max-width: 768px) {

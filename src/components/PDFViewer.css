@@ -4,13 +4,20 @@
 }
 
 .viewer-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
     margin-bottom: 1rem;
+}
+
+.viewer-title h2 {
+    color: #94a3b8;
+    margin: 0;
 }
 
 .highlight-info {
@@ -22,6 +29,9 @@
 }
 
 .info-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.75rem 1.5rem;
     border-radius: 12px;
     font-weight: 600;
@@ -81,6 +91,20 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.text-danger-500 {
+    color: var(--danger-500);
+}
+
+.text-success-500 {
+    color: var(--success-500);
 }
 
 .download-btn {

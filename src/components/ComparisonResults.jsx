@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BarChart3, CheckCircle, XCircle, RefreshCw, Table, Info, ChevronDown } from 'lucide-react';
 import './ComparisonResults.css';
 
 const ComparisonResults = ({ results }) => {
@@ -28,10 +29,10 @@ const ComparisonResults = ({ results }) => {
                 >
                     <div className="section-title">
                         <span className={`icon ${type}`}>
-                            {type === 'added' && '✓'}
-                            {type === 'removed' && '✗'}
-                            {type === 'modified' && '↻'}
-                            {type === 'table_changes' && '⊞'}
+                            {type === 'added' && <CheckCircle className="w-5 h-5" />}
+                            {type === 'removed' && <XCircle className="w-5 h-5" />}
+                            {type === 'modified' && <RefreshCw className="w-5 h-5" />}
+                            {type === 'table_changes' && <Table className="w-5 h-5" />}
                         </span>
                         <h3>
                             {type === 'added' && 'Added'}
@@ -41,9 +42,7 @@ const ComparisonResults = ({ results }) => {
                         </h3>
                         <span className="count-badge">{changes.length}</span>
                     </div>
-                    <span className={`expand-icon ${expandedSections[type] ? 'expanded' : ''}`}>
-                        ▼
-                    </span>
+                    <ChevronDown className={`expand-icon ${expandedSections[type] ? 'expanded' : ''}`} />
                 </div>
 
                 {expandedSections[type] && (
@@ -97,7 +96,10 @@ const ComparisonResults = ({ results }) => {
     return (
         <div className="comparison-results">
             <div className="results-header">
-                <h2>📊 Comparison Summary</h2>
+                <div className="results-title">
+                    <BarChart3 className="w-6 h-6" />
+                    <h2>Comparison Summary</h2>
+                </div>
                 {results.total_changes !== undefined && (
                     <div className="total-changes">
                         Total Changes: <span className="highlight">{results.total_changes}</span>
@@ -132,7 +134,8 @@ const ComparisonResults = ({ results }) => {
 
             {results.batch_count && results.batch_count > 1 && (
                 <div className="batch-info">
-                    ℹ️ Processed in {results.batch_count} batches
+                    <Info className="w-4 h-4" />
+                    <span>Processed in {results.batch_count} batches</span>
                 </div>
             )}
         </div>
